@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
+use App\Models\Tweet;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
-class UserFactory extends Factory
+class TweetFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = Tweet::class;
 
     /**
      * Define the model's default state.
@@ -23,11 +23,8 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
-            'email' => $this->faker->unique()->safeEmail,
-            'email_verified_at' => now(),
-            'password' => bcrypt('123456'),
-            'remember_token' => Str::random(10),
+            'user_id' => User::inRandomOrder()->first()->id,
+            'contents' => $this->faker->text(30),
         ];
     }
 }
