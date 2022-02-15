@@ -24,7 +24,7 @@ class TweetFactory extends Factory
     {
         return [
             'user_id' => User::inRandomOrder()->first()->id,
-            'contents' => $this->faker->text(30),
+            'content' => $this->faker->text(30),
         ];
     }
 }
