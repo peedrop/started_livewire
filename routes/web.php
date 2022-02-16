@@ -21,3 +21,7 @@ Route::get('/', function () {
 });
 
 Route::get('tweets', ShowTweets::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
