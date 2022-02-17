@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('tweets', ShowTweets::class)->middleware('auth');
+// Route::get('tweets', ShowTweets::class)->middleware('auth');
 
 Auth::routes();
 

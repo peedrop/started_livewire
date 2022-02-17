@@ -19,5 +19,16 @@
             </div>
         </div>
     </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">Tweets</div>
+
+                <div class="card-body">
+                    @livewire('show-tweets')
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
