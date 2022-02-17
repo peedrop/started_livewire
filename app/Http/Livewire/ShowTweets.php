@@ -16,9 +16,11 @@ class ShowTweets extends Component
         'content' => 'required|min:3|max:255',
     ];
 
+    protected $paginationTheme = 'bootstrap';
+
     public function render()
     {
-        $tweets = Tweet::with('user')->paginate(2);
+        $tweets = Tweet::with('user')->latest()->paginate(10);
 
         return view('livewire.show-tweets', compact('tweets'));
     }
@@ -26,8 +28,7 @@ class ShowTweets extends Component
     public function create() {
         $this->validate();
 
-        Tweet::create([
-            'user_id' => 1,
+        auth()->user()->tweets()->create([
             'content' => $this->content
         ]);
 
